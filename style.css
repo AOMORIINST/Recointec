@@ -264,5 +264,35 @@ footer {
 .btn-instagram svg {
   fill: #fff;
 }
+.button-group {
+  display: flex;       /* Coloca los botones en línea */
+  gap: 20px;           /* Espacio entre ellos */
+  flex-wrap: wrap;     /* Se ajusta en móviles */
+  justify-content: center; /* Centrado horizontal */
+  margin-top: 20px;
+}
+
+.btn {
+  background: #00d1ff;
+  color: #fff;
+  padding: 12px 30px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.3s, background 0.3s;
+}
+.btn:hover {
+  background: #009ec2;
+  transform: scale(1.05);
+}
+
+.btn-secondary {
+  background: #25D366;
+}
+.btn-secondary:hover {
+  background: #1ebe5d;
+}
+
+
 
 
