@@ -1,109 +1,801 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reparación de Celulares</title>
-  <link rel="stylesheet" href="style.css">
-   <link rel="icon" href="https://instagram.fros11-1.fna.fbcdn.net/v/t51.2885-19/491470035_17897042541191659_4896983277899227195_n.jpg?stp=dst-jpg_s150x150_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLmRqYW5nby4xMDgwLmMyIn0&_nc_ht=instagram.fros11-1.fna.fbcdn.net&_nc_cat=107&_nc_oc=Q6cZ2QFX_RconMvu0jyaF5AV7WSXWegwWEHxGeIepsZtQftrSuaycCggxTc2L4u4iQAE2Ko&_nc_ohc=tJGU6qQuyjUQ7kNvwHuVRue&_nc_gid=8Bg0jCGofhnpXERHUR20sQ&edm=AOQ1c0wBAAAA&ccb=7-5&ig_cache_key=GNM8Sx3roTLvQ5U-ADsgNo5YlPVDbvEnAQAB1501500j-ccb7-5&oh=00_AfXImOzyTsPlKvW4CNYWsN9aS2qwZ6ORKeRkrPgBCyNC_A&oe=68AAE8E2&_nc_sid=8b3546" type="image/png">
-  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recointec - Reparación Profesional de Celulares</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-white: #ffffff;
+            --primary-orange: #FF6B35;
+            --secondary-orange: #FF914D;
+            --light-gray: #F8F9FA;
+            --medium-gray: #6C757D;
+            --dark-gray: #343A40;
+            --shadow-soft: 8px 8px 16px rgba(0, 0, 0, 0.1), -8px -8px 16px rgba(255, 255, 255, 0.8);
+            --shadow-pressed: inset 4px 4px 8px rgba(0, 0, 0, 0.1), inset -4px -4px 8px rgba(255, 255, 255, 0.8);
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--light-gray) 0%, #EAEAEA 100%);
+            color: var(--dark-gray);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: var(--primary-white);
+            padding: 20px 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-orange);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            box-shadow: var(--shadow-soft);
+        }
+        
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--dark-gray);
+        }
+        
+        .logo-text span {
+            color: var(--primary-orange);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--dark-gray);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        nav a:hover {
+            color: var(--primary-orange);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-orange);
+            transition: width 0.3s ease;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 160px 0 80px;
+            background: linear-gradient(135deg, var(--primary-white) 0%, var(--light-gray) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .hero-text {
+            animation: slideInLeft 1s ease-out;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--dark-gray);
+            line-height: 1.2;
+        }
+        
+        .hero-title span {
+            color: var(--primary-orange);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--medium-gray);
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 15px 30px;
+            border-radius: 15px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: var(--shadow-soft);
+        }
+        
+        .btn-primary {
+            background: var(--primary-orange);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: var(--secondary-orange);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 107, 53, 0.3);
+        }
+        
+        .btn-secondary {
+            background: var(--primary-white);
+            color: var(--dark-gray);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--light-gray);
+            transform: translateY(-3px);
+        }
+        
+        .hero-image {
+            position: relative;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .hero-image img {
+            width: 100%;
+            border-radius: 30px;
+            box-shadow: var(--shadow-soft);
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background: var(--primary-white);
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 50px;
+            color: var(--dark-gray);
+        }
+        
+        .section-title span {
+            color: var(--primary-orange);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: var(--primary-white);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: var(--shadow-soft);
+            cursor: pointer;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--light-gray);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 30px;
+            color: var(--primary-orange);
+            box-shadow: var(--shadow-soft);
+        }
+        
+        .service-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--dark-gray);
+        }
+        
+        .service-desc {
+            color: var(--medium-gray);
+            margin-bottom: 20px;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background: var(--light-gray);
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: var(--shadow-soft);
+        }
+        
+        .about-text h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--dark-gray);
+        }
+        
+        .about-text h2 span {
+            color: var(--primary-orange);
+        }
+        
+        .about-features {
+            margin: 30px 0;
+        }
+        
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-white);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-orange);
+            box-shadow: var(--shadow-soft);
+        }
+        
+        /* CTA Section */
+        .cta {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary-orange) 0%, var(--secondary-orange) 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .cta-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .cta-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .cta-text {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-white {
+            background: white;
+            color: var(--primary-orange);
+        }
+        
+        .btn-white:hover {
+            background: var(--light-gray);
+            transform: translateY(-3px);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark-gray);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--primary-orange);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column a {
+            color: var(--light-gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-column a:hover {
+            color: var(--primary-orange);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background: var(--primary-orange);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--light-gray);
+        }
+        
+        /* Animations */
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-content,
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+            
+            .hero-buttons,
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+        
+        /* Add animation classes */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
 <body>
-  <!-- Header -->
-  <header class="header">
-    <div class="logo">📱 Recointec</div>
-    <nav>
-      <ul>
-        <li><a href="#hero">Inicio</a></li>
-        <li><a href="#services">Servicios</a></li>
-        <li><a href="#why">Por qué elegirnos</a></li>
-        <li><a href="#contact">Contacto</a></li>
-      </ul>
-    </nav>
-  </header>
+    <!-- Header -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <div class="logo-text">Reco<span>intec</span></div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#hero">Inicio</a></li>
+                    <li><a href="#services">Servicios</a></li>
+                    <li><a href="#about">Nosotros</a></li>
+                    <li><a href="#contact">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-  <!-- Hero -->
-  <section id="hero" class="hero">
-    <div class="hero-content">
-      <h1>Reparamos tu celular rápido y seguro</h1>
-      <p>Diagnóstico inmediato, repuestos originales y garantía en cada reparación.</p>
-      <a href="#contact" class="btn">Agenda tu reparación</a>
-    </div>
-  </section>
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text animate-on-scroll">
+                    <h1 class="hero-title">Reparación Profesional de <span>Celulares</span> y Tecnología</h1>
+                    <p class="hero-subtitle">Soluciones rápidas y confiables para todos tus dispositivos. Expertos en reparación con garantía y servicio premium.</p>
+                    <div class="hero-buttons">
+                        <a href="https://wa.me/5491122334455?text=Hola%20Recointec,%20me%20interesa%20sus%20servicios%20de%20reparación" class="btn btn-primary" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+                        </a>
+                        <a href="https://www.mercadolibre.com.ar/" class="btn btn-secondary" target="_blank">
+                            <i class="fas fa-shopping-cart"></i> Ver en MercadoLibre
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image animate-on-scroll">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ee90b6c0-796b-4d85-ba2f-e0ad3b1e25af.png" alt="Técnico especializado reparando smartphones en moderno taller de tecnología con herramientas profesionales" />
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Servicios -->
-  <section id="services" class="services">
-    <h2>Nuestros Servicios</h2>
-    <div class="service-cards">
-      <div class="card">
-        <h3>Reparación de Pantallas</h3>
-        <p>Cambiamos pantallas rotas con repuestos originales y garantía.</p>
-      </div>
-      <div class="card">
-        <h3>Cambio de Batería</h3>
-        <p>Recupera la duración de tu batería con repuestos de calidad.</p>
-      </div>
-      <div class="card">
-        <h3>Software & Actualizaciones</h3>
-        <p>Instalación de sistemas, limpieza de virus y optimización.</p>
-      </div>
-    </div>
-  </section>
-  <!-- Sección Intermedia -->
-<section class="feature">
-  <div class="feature-image">
-    <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9" alt="Reparación de celulares">
-  </div>
-  <div class="feature-text">
-    <left><h2>Reparación rápida y confiable</h2></left>
-    <p>
-    Nos enfocamos en devolver tu dispositivo a su mejor estado en tiempo récord, asegurando que cada reparación cumpla con los más altos estándares de calidad. Utilizamos repuestos originales y certificados
-  </div>
-</section>
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Nuestros <span>Servicios</span></h2>
+            <div class="services-grid">
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="service-title">Reparación de Pantallas</h3>
+                    <p class="service-desc">Cambio profesional de pantallas rotas o dañadas con repuestos originales y garantía.</p>
+                </div>
+                
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">
+                        <i class="fas fa-battery-full"></i>
+                    </div>
+                    <h3 class="service-title">Cambio de Baterías</h3>
+                    <p class="service-desc">Reemplazo de baterías agotadas con componentes de alta calidad y máxima duración.</p>
+                </div>
+                
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h3 class="service-title">Reparación de Hardware</h3>
+                    <p class="service-desc">Solución de problemas internos, conectores, cámaras y componentes electrónicos.</p>
+                </div>
+                
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3 class="service-title">Mantenimiento Preventivo</h3>
+                    <p class="service-desc">Limpieza y optimización para prolongar la vida útil de tus dispositivos.</p>
+                </div>
+                
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3 class="service-title">Desbloqueos</h3>
+                    <p class="service-desc">Desbloqueo de dispositivos por contraseña, patrón o problemas de seguridad.</p>
+                </div>
+                
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">
+                        <i class="fas fa-tablet-alt"></i>
+                    </div>
+                    <h3 class="service-title">Tablets y Laptops</h3>
+                    <p class="service-desc">Reparación especializada de tablets y computadoras portátiles de todas las marcas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Por qué elegirnos -->
-  <section id="why" class="why">
-    <h2>¿Por qué elegirnos?</h2>
-    <div class="why-cards">
-      <div class="card">⚡ Reparaciones rápidas en menos de 2 hora</div>
-      <div class="card">🔒 Garantía por cada servicio</div>
-      <div class="card">💡 Técnicos certificados</div>
-      <div class="card">🌟 Más de 150 clientes satisfechos</div>
-    </div>
-  </section>
-  <b>
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image animate-on-scroll">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/dd2cf90b-e9f2-4224-80b5-ceed3e584a2d.png" alt="Equipo técnico de Recointec trabajando en moderno laboratorio de reparación con equipos de última generación" />
+                </div>
+                <div class="about-text animate-on-scroll">
+                    <h2>¿Por qué elegir <span>Recointec</span>?</h2>
+                    <p>Somos especialistas en reparación de dispositivos móviles con más de 10 años de experiencia en el mercado. Nuestro compromiso es brindar soluciones rápidas, confiables y con la mejor calidad.</p>
+                    
+                    <div class="about-features">
+                        <div class="feature">
+                            <div class="feature-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div>
+                                <h4>Garantía en Todos los Reparaciones</h4>
+                                <p>Confianza absoluta en nuestro trabajo</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature">
+                            <div class="feature-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4>Servicio Rápido</h4>
+                                <p>Reparaciones express y entregas a tiempo</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature">
+                            <div class="feature-icon">
+                                <i class="fas fa-toolbox"></i>
+                            </div>
+                            <div>
+                                <h4>Técnicos Certificados</h4>
+                                <p>Profesionales con certificación oficial</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature">
+                            <div class="feature-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div>
+                                <h4>Calidad Premium</h4>
+                                <p>Repuestos originales y de primera calidad</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- CTA Section -->
+    <section id="contact" class="cta">
+        <div class="container">
+            <div class="cta-content animate-on-scroll">
+                <h2 class="cta-title">¿Necesitas ayuda con tu dispositivo?</h2>
+                <p class="cta-text">Contáctanos ahora mismo y recibe asesoramiento profesional sin compromiso. Estamos aquí para ayudarte.</p>
+                <div class="cta-buttons">
+                    <a href="https://wa.me/5491122334455?text=Hola%20Recointec,%20necesito%20asesoramiento%20sobre%20una%20reparación" class="btn btn-white" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Chatear por WhatsApp
+                    </a>
+                    <a href="https://www.mercadolibre.com.ar/" class="btn btn-white" target="_blank">
+                        <i class="fas fa-store"></i> Visitar MercadoLibre
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Recointec</h3>
+                    <p>Tu solución confiable en reparación de tecnología. Expertos en celulares, tablets y dispositivos electrónicos.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Servicios</h3>
+                    <ul>
+                        <li><a href="#">Reparación de Pantallas</a></li>
+                        <li><a href="#">Cambio de Baterías</a></li>
+                        <li><a href="#">Reparación de Hardware</a></li>
+                        <li><a href="#">Mantenimiento Preventivo</a></li>
+                        <li><a href="#">Desbloqueos</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contacto</h3>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +54 9 11 2233-4455</li>
+                        <li><i class="fas fa-envelope"></i> info@recointec.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Av. Tecnología 1234, Buenos Aires</li>
+                        <li><i class="fas fa-clock"></i> Lun-Vie: 9:00 - 18:00</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="#hero">Inicio</a></li>
+                        <li><a href="#services">Servicios</a></li>
+                        <li><a href="#about">Nosotros</a></li>
+                        <li><a href="#contact">Contacto</a></li>
+                        <li><a href="#">Política de Garantía</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>© 2024 Recointec. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
 
-  </b>
-
-<!-- Contacto -->
-<section id="contact" class="contact">
-  <h2>Contáctanos</h2>
-  <p>Haz clic en el botón para hablar con nosotros por WhatsApp 👇</p>
-  <b></b>
-  <br>
-  <a href="https://wa.me/5491158432602" target="_blank" class="btn-whatsapp">
-    💬 Escríbenos por WhatsApp
-  </a>
-  <p>
-  <span class="invisible"></span>
-</p>
-</a>
-</section>
-
-  <footer>
-    <p>© 2025 Recointec - Todos los derechos reservados.</p>
-  </footer>
-
-  <script src="script.js"></script>
+    <script>
+        // Animación al hacer scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.animate-on-scroll');
+            
+            function checkScroll() {
+                animatedElements.forEach(element => {
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const screenPosition = window.innerHeight / 1.3;
+                    
+                    if (elementPosition < screenPosition) {
+                        element.classList.add('visible');
+                    }
+                });
+            }
+            
+            // Check on load and scroll
+            checkScroll();
+            window.addEventListener('scroll', checkScroll);
+            
+            // Smooth scrolling for navigation
+            document.querySelectorAll('nav a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Add hover effects to service cards
+            const serviceCards = document.querySelectorAll('.service-card');
+            serviceCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px)';
+                    this.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.15)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = '8px 8px 16px rgba(0, 0, 0, 0.1), -8px -8px 16px rgba(255, 255, 255, 0.8)';
+                });
+            });
+        });
+    </script>
 </body>
 </html>
-
-
-
-
-
-
-
 
